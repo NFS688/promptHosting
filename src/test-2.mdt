@@ -95,7 +95,7 @@
         channelId: Int      : 这条消息所在的会话的唯一标识 ID
         senderName: String  : 发送消息者在聊天平台上的昵称
         senderId: String    : 发送消息者在聊天平台上的唯一标识 ID
-        userContent: String : 消息主体                                 特殊元素: [图片: description];[视频];[音频] : 分别表示消息发送者发送了图片、视频和音频, description是其内容描述
+        userContent: String : 消息主体                                 特殊元素: [图片: description];[视频];[音频] : 分别表示消息发送者发送了图片、视频和音频, description是其内容描述。<at id='senderId' name='senderName'/>表示提及聊天对象, 如果出现<at id='3067656659' name='${config.Bot.BotName}'/>表示有消息提及了你。
         quoteMessageId: String : 消息发送者回复特定的消息 ID
     }
 
@@ -128,7 +128,7 @@
         如果有任何问题, 请根据 reply 修改。将你修改好的 reply 写入 JSON 的 `finReply` 中, 最后系统只会将finReply中的内容发送到聊天平台。
         你可以在finReply中使用 `<at id='senderId' name='senderName'/>` 来提及某个对象。注意: **不要滥用**
         execute暂时不可以使用, 保持默认即可。
-        **注意**：不要在fineReply中使用`[图片: image description]`, `[视频]`, `[音频]`等特殊元素，你暂时不能发送图片, 视频, 和音频。
+        **注意**：不要在fineReply中使用`[图片: description]`, `[视频]`, `[音频]`等特殊元素，你暂时不能发送图片, 视频, 和音频。
     }
 
 接下来我将一步步地带领你, 生成一条符合场景的消息: 
