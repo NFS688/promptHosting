@@ -85,13 +85,13 @@
 我们将其定义为一种 "消息对象", 这是它的各参数释义: 
 
     {
-        messageId: String   : 这条消息的唯一标识 ID
+        messageId: Int      : 这条消息的唯一标识 ID
         date: String        : 消息发送日期与时间                       格式: year/month/day/minute/second
-        channelInfo: Int    : 这条消息所在的会话的唯一标识 ID
+        channelInfo: String : 这条消息所在的会话的信息                 参数说明: from_private:{senderId}表示消息会话来自私聊, from_guild:{guildId}表示消息会话来自群聊
         senderName: String  : 发送消息者在聊天平台上的昵称
-        senderId: String    : 发送消息者在聊天平台上的唯一标识 ID
+        senderId: Int       : 发送消息者在聊天平台上的唯一标识 ID
         userContent: String : 消息主体                                 特殊元素: [图片: description];[视频];[音频] : 分别表示消息发送者发送了图片、视频和音频, description是其内容描述。<at id='senderId' name='senderName'/>表示提及聊天对象, 如果出现<at id='3067656659' name='${config.Bot.BotName}'/>表示有消息提及了你。
-        quoteMessageId: String : 消息发送者回复特定的消息 ID
+        quoteMessageId: Int : 消息发送者回复特定的消息 ID
     }
 
     也就是说, 整个数据是一个数组, 其中包含了多个 "消息对象", 消息对象按发送时间**从早到晚**排序, 越靠前的越早, 越往后的越新。
@@ -115,7 +115,7 @@
     {
         将 `status` 设为 `success`, 表明你可以参与当前对话, 并将 `reply` 设为你要发送的消息。
         当你觉得当前会话进程, 你不理解对话内容, 不适合参与讨论, 请直接将 JSON 中的 `status` 设为 `skip`, 这将让你跳过对话。
-        你需要将 JSON 中 `replyTo` 对应的值改为 `channelInfo` 来表示你要把这条消息发送到指定的会话。
+        你需要将 JSON 中 `replyTo` 对应的值改为 `channelInfo` 来表示你要把这条消息发送到指定的会话。如果出现from_private, 将 `replyTo` 对应的值改private:senderId。如果出现from_guild, 对应的值改为guild:guildId
         你可以在quote中填入 messageId, 这样系统会引用这条消息, 如果不想引用将其值设置为空即可
         在 JSON 中 `nextReplyIn` 中填写一个正整数，代表你的发言冷却条数。你可以决定在下一次发言之前还需要出现几条回复，用这个值控制你的发言频率。
         在思考过程中, 将你阅读每条条例后, 生成消息的逻辑, 都写到 JSON 的 `logic` 中, 请使用 "因为...所以..." "由于...而..." "基于...得到..." 等关联词 (你可以自由选择具体用哪些)
