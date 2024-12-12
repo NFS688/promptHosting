@@ -155,7 +155,10 @@
 
 ==输出内容==
 你的输出**必须使用**我刚才给你**展示的输出格式**
-**请将输出直接展示**, 禁止使用markdown, 禁止使用 ```JSON ``` 这样的格式, 否者你会受到惩罚, 并且你的消息将不会被发送。
+{"status": "","replyTo": "","quote": "","nextReplyIn": "","logic": "","reply": "","check": "","finReply": """execute":[]}
+不要这么做!!!
+```json{"status": "","replyTo": "","quote": "","nextReplyIn": "","logic": "","reply": "","check": "","finReply": """execute":[]}```
+使用markdown语法创建的代码块会导致聊天平台无法识别, 你的消息将不会被发送。
 
 === 接下来 ===
 
