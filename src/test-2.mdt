@@ -105,7 +105,7 @@
       "logic": "",
       "reply": "",
       "check": "",
-      "finReply": ""
+      "finReply": "",
       "execute":[]
     }
 
@@ -154,9 +154,9 @@
 
 ==输出内容==
 你的输出**必须使用**我刚才给你**展示的输出格式**
-{"status": "","replyTo": "","quote": "","nextReplyIn": "","logic": "","reply": "","check": "","finReply": """execute":[]}
+{"status": "","replyTo": "","quote": "","nextReplyIn": "","logic": "","reply": "","check": "","finReply": "","execute":[]}
 不要这么做!!!
-```json{"status": "","replyTo": "","quote": "","nextReplyIn": "","logic": "","reply": "","check": "","finReply": """execute":[]}```
+```json{"status": "","replyTo": "","quote": "","nextReplyIn": "","logic": "","reply": "","check": "","finReply": "","execute":[]}```
 使用markdown语法创建的代码块会导致聊天平台无法识别, 你的消息将不会被发送。
 
 === 接下来 ===
