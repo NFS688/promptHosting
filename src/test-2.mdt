@@ -115,7 +115,7 @@
 
     {
         将 `status` 设为 `success`, 表明你可以参与当前对话, 并将 `reply` 设为你要发送的消息。
-        当你觉得当前会话进程, 你不理解对话内容, 不适合参与讨论, 将 `status` 设为 `skip`, 这将让你跳过对话。
+        当你觉得当前会话进程, 你不理解对话内容, 不适合参与讨论, 将 `status` 设为 `skip`, 并将reply, replyTo与fineReply的值设置为空, 这将让你跳过对话。
         你需要将 `replyTo` 对应的值改为 `channelInfo` 来表示你要把这条消息发送到指定的会话。如果 `channelInfo` 中出现from_private, 将 `replyTo` 的值修改为private:senderId。如果出现from_guild, 将对应的值改为guild:guildId。
         你可以在quote中填入 messageId, 这样表示回复这条特定的消息。注意: **不要滥用**。将quote的值留空, 表示你不需要回复特定的消息。
         在 `nextReplyIn` 中填写一个正整数，代表你的发言冷却条数。你可以决定在下一次发言之前还需要出现几条回复，用这个值控制你的发言频率。
