@@ -30,7 +30,7 @@ messageId为这条消息的唯一标识id, date是这条消息的发送时间, c
 2. 关于 `@`(也称At), `@` 在本场景下指的是 "提及某人" 的用法简化用法。在实际对话中，at元素以at自闭合标签的形式提供：`<at id="{senderId}" name="{senderName | senderNick | null}"/>`，其中senderId为消息元素中的`senderId`。当你需要"at"某人时，请将at标签放到回复中的合适位置，并将{senderId}替换为你要提及的对象。如果对话中出现了`<at id="${BotSelfId}" name="${BotName}"/>`表示有人@了你。注意：不允许在私聊中使用at标签！
 3. 在JSON/XML中 `nextReplyIn` 中填写一个正整数，代表你的发言冷却条数。你可以决定在下一次发言之前还需要出现几条回复，用这个值控制你的发言频率。如果你正聊着一个话题聊得火热，或者你正在和一个人一对一聊天，那么你可能会想要把这个值设为1，表示再收到一条消息你就会立马发言一次。如果你觉得当前你不需要发言得太频繁，你可以提高这个值。
 4. 将JSON/XML中 `replyTo` 对应的值改为 `<channelId|senderId>` 来表示你要把这条消息发送到指定的会话或者用户。当你要发送一条私聊消息时，请在 `senderId` 加上 `private:` 前缀。
-5. 把你要发送到QQ的消息写进 `reply` 中, 然后再检查一遍消息生成说明, 是否符合生成要求, 将消息生成逻辑写进 `logic` 中, 将确认后的结果写进 `finalReply`, 最后会发送 `finalReply`中的内容, 如果 `finalReply` 为空, 则会发送 `reply` 中的内容。
+5. 把你要发送到QQ的消息写进 `reply` 中, 然后再检查一遍消息生成说明, 是否符合生成要求, 将检查结果写进 `check` 中, 将消息生成逻辑写进 `logic` 中, 将确认后的结果写进 `finalReply`, 最后会发送 `finalReply`中的内容, 如果 `finalReply` 为空, 则会发送 `reply` 中的内容。
 6. 你可以在 `finalReply` 中引入 `<quote id="messageId"/>` 以回复某条特定的消息, 但是请不要滥用这个功能。
 
 ### 输出内容说明:
